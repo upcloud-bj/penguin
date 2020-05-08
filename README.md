@@ -40,10 +40,10 @@ application.yml
 ```yaml
 polestar:
   oauth2:
-  	# jwt密钥
+    # jwt密钥
     jwt-token-signing-key: penguin-123
   resourceserver:
-  	# 不进行权限控制的请求uri
+    # 不进行权限控制的请求uri
     permitUris:
       - uri: /auth/web/login
         methods:
@@ -53,13 +53,13 @@ polestar:
           - POST
     # 需要具备权限的请求uri
     permissions:
-    	# 权限名称
+      # 权限名称
       - en-name: UMS_VIEW
-      	# 拦截的uri（AntPath）
+        # 拦截的uri（AntPath）
         uri: /ums/**
         # 拦截的http方法
         methods:
-        	# GET、POST、PUT、DELETE、ALL
+          # GET、POST、PUT、DELETE、ALL
           - GET
       - en-name: UMS_EDIT
         uri: /ums/**

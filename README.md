@@ -38,7 +38,7 @@ Penguin是由升云科技（北京）有限公司实现的基于Springboot的OAu
 application.yml
 
 ```yaml
-polestar:
+penguin:
   oauth2:
     # jwt密钥
     jwt-token-signing-key: penguin-123

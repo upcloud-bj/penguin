@@ -1,0 +1,9 @@
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/config/ResourceServerConfig.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/properties/PenguinProperties.class
+META-INF/spring-configuration-metadata.json
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/config/JwtTokenConfig.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/filter/TokenFilter.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/properties/PenguinProperties$PermitUri.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/properties/PenguinProperties$Permission.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/properties/PenguinProperties$ResourceServer.class
+com/upcloud_bj/penguin/auth/sidecar/resourceserver/properties/PenguinProperties$OAuth2.class

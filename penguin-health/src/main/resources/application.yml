@@ -1,0 +1,9 @@
+server:
+  port: 8099
+spring:
+  application:
+    name: health
+  security:
+    user:
+      name: upcloud
+      password: upcloud

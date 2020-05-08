@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "oauth",
+      "type": "com.upcloud_bj.penguin.auth.login.properties.OAuthProperties",
+      "sourceType": "com.upcloud_bj.penguin.auth.login.properties.OAuthProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "oauth.clients",
+      "type": "java.util.List<com.upcloud_bj.penguin.auth.login.properties.OAuthProperties$Client>",
+      "sourceType": "com.upcloud_bj.penguin.auth.login.properties.OAuthProperties"
+    },
+    {
+      "name": "oauth.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.upcloud_bj.penguin.auth.login.properties.OAuthProperties"
+    }
+  ],
+  "hints": []
+}

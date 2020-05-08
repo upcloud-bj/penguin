@@ -1,0 +1,63 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: auth-server
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.1.130:31306/sys_auth?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: upcloud-orgms
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8099
+        username: upcloud
+        password: upcloud
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+mybatis:
+  type-aliases-package: com.upcloud_bj.penguin.ums.entity
+  mapper-locations: classpath:mapper/*.xml
+
+oauth:
+  endpoint: http://localhost:8080
+  clients:
+    - name: web
+      client-id: democlient
+      client-secret: secret
+
+penguin:
+  oauth2:
+    jwt-token-signing-key: penguin-123
+  resourceserver:
+    permitUris:
+      - uri: /actuator/**
+        methods:
+          - ALL
+      - uri: /auth/web/login
+        methods:
+          - POST
+      - uri: /auth/web/refreshToken
+        methods:
+          - POST
+    permissions:
+      - en-name: UMS_VIEW
+        uri: /ums/**
+        methods:
+          - GET
+      - en-name: UMS_EDIT
+        uri: /ums/**
+        methods:
+          - ALL

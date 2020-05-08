@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.upcloud-bj</groupId>
+    <artifactId>penguin</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <mysql.version>8.0.19</mysql.version>
+        <tk-mybatis-mapper.version>3.4.4</tk-mybatis-mapper.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.upcloud-bj</groupId>
+                <artifactId>penguin-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>penguin-dependencies</module>
+        <module>penguin-auth-server</module>
+        <module>penguin-auth-sidecar</module>
+        <module>penguin-common</module>
+        <module>penguin-health</module>
+    </modules>
+</project>

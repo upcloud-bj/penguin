@@ -21,7 +21,95 @@ Penguin是由升云科技（北京）有限公司实现的基于Springboot的OAu
 
 
 
-# Penguin Auth Sidecar 使用说明
+# Penguin Auth Server 认证授权服务（OAuth2.0）
+
+## application.yml
+
+```yaml
+server:
+  port: 8080
+spring:
+  application:
+    name: auth-server
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.1.130:31306/sys_auth?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: upcloud-orgms
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8099
+        username: upcloud
+        password: upcloud
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+mybatis:
+  type-aliases-package: com.upcloud_bj.penguin.ums.entity
+  mapper-locations: classpath:mapper/*.xml
+
+oauth:
+  endpoint: http://localhost:8080
+  clients:
+    - name: web
+      client-id: democlient
+      client-secret: secret
+
+penguin:
+  oauth2:
+    jwt-token-signing-key: penguin-123
+  resourceserver:
+    permitUris:
+      - uri: /actuator/**
+        methods:
+          - ALL
+      - uri: /auth/web/login
+        methods:
+          - POST
+      - uri: /auth/web/refreshToken
+        methods:
+          - POST
+    permissions:
+      - en-name: UMS_VIEW
+        uri: /ums/**
+        methods:
+          - GET
+      - en-name: UMS_EDIT
+        uri: /ums/**
+        methods:
+          - ALL
+```
+
+> 根据需要修改端口、数据库连接配置、mybatis配置、健康服务地址/账号/密码、资源服务器权限配置
+
+## 数据库DDL
+
+参考：penguin/01.documents/01.db/01.ddl/ddl.sql
+
+## 测试数据
+
+参考：penguin/01.documents/01.db/02.dummy-data/Dump20200424.sql
+
+HTTP登录URL：http://localhost:8080/auth/web/login （POST）
+
+登录账号：admin
+
+登录密码：123
+
+
+
+# Penguin Auth Sidecar 资源服务器权限管理
 
 ## 在资源工程的pom中引入penguin-auth-sidecar依赖
 
@@ -128,3 +216,21 @@ public class AuthServerApplication {
    - headerImg
 
      头像
+
+# Penguin Health 健康监测服务
+
+## application.yml
+
+```yaml
+server:
+  port: 8099
+spring:
+  application:
+    name: health
+  security:
+    user:
+      name: upcloud
+      password: upcloud
+```
+
+> 根据需要修改端口和账号密码

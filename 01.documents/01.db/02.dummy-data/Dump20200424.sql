@@ -1,0 +1,77 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+--
+-- Host: orgms-master    Database: sys_auth
+-- ------------------------------------------------------
+-- Server version	5.7.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `sys_permission`
+--
+
+LOCK TABLES `sys_permission` WRITE;
+/*!40000 ALTER TABLE `sys_permission` DISABLE KEYS */;
+INSERT INTO `sys_permission` VALUES (1,'UMS_VIEW','UMS查看',NULL,'00',1,'2020-04-21 07:32:08',1,'2020-04-21 07:32:08'),(2,'UMS_EDIT','UMS编辑',NULL,'00',1,'2020-04-21 07:32:08',1,'2020-04-21 07:32:08');
+/*!40000 ALTER TABLE `sys_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `sys_role`
+--
+
+LOCK TABLES `sys_role` WRITE;
+/*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
+INSERT INTO `sys_role` VALUES (1,'ADMIN','管理员',NULL,'00',1,'2020-04-21 07:28:33',1,'2020-04-21 07:28:33'),(2,'USER','普通用户',NULL,'00',1,'2020-04-21 07:29:48',1,'2020-04-21 07:29:48');
+/*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `sys_role_permission`
+--
+
+LOCK TABLES `sys_role_permission` WRITE;
+/*!40000 ALTER TABLE `sys_role_permission` DISABLE KEYS */;
+INSERT INTO `sys_role_permission` VALUES (1,1,1,1,'2020-04-21 07:32:42',1,'2020-04-21 07:32:42'),(2,1,2,1,'2020-04-21 07:32:42',1,'2020-04-21 07:32:42'),(3,2,1,1,'2020-04-21 07:32:42',1,'2020-04-21 07:32:42');
+/*!40000 ALTER TABLE `sys_role_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `sys_user`
+--
+
+LOCK TABLES `sys_user` WRITE;
+/*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
+INSERT INTO `sys_user` VALUES (1,'admin','$2a$10$J.GpRK.0xFUd1JUHlQUv7uVjcC34sgZOXI83fHHAkxCrxuczk7zEW','管理员','cat.jpg',NULL,'00',1,'2020-04-21 07:06:26',1,'2020-04-21 07:06:26'),(2,'demo','$2a$10$J.GpRK.0xFUd1JUHlQUv7uVjcC34sgZOXI83fHHAkxCrxuczk7zEW','demo用户','mouse.jpg',NULL,'00',1,'2020-04-21 07:06:41',NULL,'2020-04-21 07:06:41');
+/*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `sys_user_role`
+--
+
+LOCK TABLES `sys_user_role` WRITE;
+/*!40000 ALTER TABLE `sys_user_role` DISABLE KEYS */;
+INSERT INTO `sys_user_role` VALUES (1,1,1,1,'2020-04-21 07:29:12',1,'2020-04-21 07:29:12');
+/*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-04-24 14:09:00
